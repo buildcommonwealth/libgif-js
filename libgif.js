@@ -428,7 +428,8 @@
             vp_h: null,
             //canvas sizes
             c_w: null,
-            c_h: null
+            c_h: null,
+            xhr: window.XMLHttpRequest
         };
         for (var i in opts ) { options[i] = opts[i] }
         if (options.vp_w && options.vp_h) options.is_vp = true;
@@ -927,7 +928,7 @@
             load_url: function(src,callback){
                 if (!load_setup(callback)) return;
 
-                var h = new XMLHttpRequest();
+                var h = new options.xhr();
                 // new browsers (XMLHttpRequest2-compliant)
                 h.open('GET', src, true);
 
